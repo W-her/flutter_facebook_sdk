@@ -11,15 +11,25 @@ class FacebookSdk {
     return version;
   }
 
-  static Future<void> initFacebookSdk({@required String appId}) async {
-    _channel.invokeMethod('init', {
+  static Future<void> setApplicationId({@required String appId}) async {
+    _channel.invokeMethod('setApplicationId', {
       "appId": appId,
     });
   }
 
-  static Future<void> logEventFacebook({@required String eventName}) async {
-    await _channel.invokeMethod('event', {
+  static Future<void> logEvent({@required String eventName}) async {
+    await _channel.invokeMethod('logEvent', {
       "eventName": eventName,
     });
+  }
+
+  static Future<void> setUserID({@required String userID}) async {
+    await _channel.invokeMethod('setUserID', {
+      "userID": userID,
+    });
+  }
+
+  static Future<void> clearUserID() async {
+    await _channel.invokeMethod('clearUserID');
   }
 }

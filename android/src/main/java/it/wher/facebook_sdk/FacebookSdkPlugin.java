@@ -35,17 +35,24 @@ public class FacebookSdkPlugin implements MethodCallHandler {
     @Override
     public void onMethodCall(MethodCall call, MethodChannel.Result result) {
         switch (call.method) {
-            case "init": {
+            case "setApplicationId": {
                 String appId = call.argument("appId");
                 FacebookSdk.setApplicationId(appId);
                 FacebookSdk.sdkInitialize(context);
                 logger = AppEventsLogger.newLogger(context);
                 break;
             }
-            case "event": {
+            case "logEvent": {
                 String eventName = call.argument("eventName");
                 logger.logEvent(eventName);
                 break;
+            }
+            case "setUserID": {
+                String userID = call.argument("userID");
+                logger.setUserID(userID);
+            }
+            case "clearUserID": {
+                logger.clearUserID();
             }
             default:
                 result.notImplemented();
