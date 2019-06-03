@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   FacebookSdk.logEvent(
                     eventName: "FlutterFacebookSdkEvent",
-                    paramas: {"ciao": "ciao"},
+                    params: {"event": "eventParam"},
                   );
                 },
               ),
@@ -50,6 +50,16 @@ class _MyAppState extends State<MyApp> {
                 child: Text("clearUserID"),
                 onPressed: () {
                   FacebookSdk.clearUserID();
+                },
+              ),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text("updateUserProperties"),
+                onPressed: () {
+                  FacebookSdk.updateUserProperties(
+                    params: {"property": "userParam"},
+                  );
                 },
               ),
             ),

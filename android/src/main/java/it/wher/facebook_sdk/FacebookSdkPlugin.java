@@ -50,7 +50,7 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 String eventName = (String) options.get("eventName");
                 Map<String, String> params = (Map<String, String>) options.get("params");
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry: params.entrySet()) {
+                for (Map.Entry<String, String> entry : params.entrySet()) {
                     bundle.putString(entry.getKey(), entry.getValue());
                 }
                 logger.logEvent(eventName, bundle);
@@ -65,16 +65,16 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 logger.clearUserID();
                 break;
             }
-            //case "updateUserProperties": {
-              //  Map options = (Map<?, ?>) call.arguments;
-               // Map<String, String> params = (Map<String, String>) options.get("params");
-               // Bundle bundle = new Bundle();
-              //  for (Map.Entry<String, String> entry: params.entrySet()) {
-              //      bundle.putString(entry.getKey(), entry.getValue());
-             //   }
-             //   logger.updateUserProperties(bundle);
-              //  break;
-           // }
+            case "updateUserProperties": {
+                Map options = (Map<?, ?>) call.arguments;
+                Map<String, String> params = (Map<String, String>) options.get("params");
+                Bundle bundle = new Bundle();
+                for (Map.Entry<String, String> entry : params.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+                logger.updateUserProperties(bundle, null);
+                break;
+            }
             default:
                 result.notImplemented();
                 break;
