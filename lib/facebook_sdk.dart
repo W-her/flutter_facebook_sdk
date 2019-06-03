@@ -17,9 +17,13 @@ class FacebookSdk {
     });
   }
 
-  static Future<void> logEvent({@required String eventName}) async {
+  static Future<void> logEvent({
+    @required String eventName,
+    Map<String, dynamic> paramas,
+  }) async {
     await _channel.invokeMethod('logEvent', {
       "eventName": eventName,
+      "params": paramas,
     });
   }
 
@@ -31,5 +35,9 @@ class FacebookSdk {
 
   static Future<void> clearUserID() async {
     await _channel.invokeMethod('clearUserID');
+  }
+
+    static Future<void> updateUserProperties() async {
+    await _channel.invokeMethod('updateUserProperties');
   }
 }

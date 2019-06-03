@@ -2,10 +2,13 @@ package it.wher.facebook_sdk;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+
+import java.util.Map;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -43,17 +46,35 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 break;
             }
             case "logEvent": {
-                String eventName = call.argument("eventName");
-                logger.logEvent(eventName);
+                Map options = (Map<?, ?>) call.arguments;
+                String eventName = (String) options.get("eventName");
+                Map<String, String> params = (Map<String, String>) options.get("params");
+                Bundle bundle = new Bundle();
+                for (Map.Entry<String, String> entry: params.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+                logger.logEvent(eventName, bundle);
                 break;
             }
             case "setUserID": {
                 String userID = call.argument("userID");
                 logger.setUserID(userID);
+                break;
             }
             case "clearUserID": {
                 logger.clearUserID();
+                break;
             }
+            //case "updateUserProperties": {
+              //  Map options = (Map<?, ?>) call.arguments;
+               // Map<String, String> params = (Map<String, String>) options.get("params");
+               // Bundle bundle = new Bundle();
+              //  for (Map.Entry<String, String> entry: params.entrySet()) {
+              //      bundle.putString(entry.getKey(), entry.getValue());
+             //   }
+             //   logger.updateUserProperties(bundle);
+              //  break;
+           // }
             default:
                 result.notImplemented();
                 break;

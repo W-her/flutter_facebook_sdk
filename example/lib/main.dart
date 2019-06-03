@@ -24,12 +24,36 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Plugin example app'),
         ),
-        body: Center(
-          child: RaisedButton(
-            onPressed: () {
-              FacebookSdk.logEvent(eventName: "FlutterFacebookSdkEvent");
-            },
-          ),
+        body: Column(
+          children: <Widget>[
+            Center(
+              child: RaisedButton(
+                child: Text("logEvent"),
+                onPressed: () {
+                  FacebookSdk.logEvent(
+                    eventName: "FlutterFacebookSdkEvent",
+                    paramas: {"ciao": "ciao"},
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text("setUserID"),
+                onPressed: () {
+                  FacebookSdk.setUserID(userID: "1234");
+                },
+              ),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text("clearUserID"),
+                onPressed: () {
+                  FacebookSdk.clearUserID();
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
