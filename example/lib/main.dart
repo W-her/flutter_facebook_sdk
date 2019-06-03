@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    FacebookSdk.initFacebookSdk(appId: "207820050055545");
+    FacebookSdk.initFacebookSdk(appId: [FACEBOOKAPPIDHERE]);
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -25,7 +25,12 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on:'),
+          child: RaisedButton(
+            onPressed: () {
+              FacebookSdk.logEventFacebook(
+                  eventName: "FlutterFacebookSdkEvent");
+            },
+          ),
         ),
       ),
     );
