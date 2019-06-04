@@ -19,7 +19,7 @@ class FacebookSdk {
 
   static Future<void> logEvent({
     @required String eventName,
-    Map<String, String> params,
+    Map<String, dynamic> params,
   }) async {
     await _channel.invokeMethod('logEvent', {
       "eventName": eventName,
@@ -38,7 +38,7 @@ class FacebookSdk {
   }
 
   static Future<void> updateUserProperties({
-    @required Map<String, String> params,
+    @required Map<String, dynamic> params,
   }) async {
     await _channel.invokeMethod('updateUserProperties', {
       "params": params,
