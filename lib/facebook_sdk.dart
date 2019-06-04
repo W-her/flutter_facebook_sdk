@@ -19,7 +19,7 @@ class FacebookSdk {
 
   static Future<void> logEvent({
     @required String eventName,
-    Map<dynamic, dynamic> params,
+    Map<String, dynamic> params,
   }) async {
     await _channel.invokeMethod('logEvent', {
       "eventName": eventName,
