@@ -49,11 +49,15 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 Map options = (Map<?, ?>) call.arguments;
                 String eventName = (String) options.get("eventName");
                 Map<String, String> params = (Map<String, String>) options.get("params");
-                Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : params.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
+                if (params != null) {
+                    Bundle bundle = new Bundle();
+                    for (Map.Entry<String, String> entry : params.entrySet()) {
+                        bundle.putString(entry.getKey(), entry.getValue());
+                    }
+                    logger.logEvent(eventName, bundle);
+                } else {
+                    logger.logEvent(eventName);
                 }
-                logger.logEvent(eventName, bundle);
                 break;
             }
             case "setUserID": {
