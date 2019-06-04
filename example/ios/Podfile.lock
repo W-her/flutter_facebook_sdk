@@ -1,23 +1,29 @@
 PODS:
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
   - facebook_sdk (0.0.1):
-    - FacebookSDK
+    - FacebookSDK (= 4.44.1)
+    - FBSDKCoreKit (= 4.39.1)
     - Flutter
-  - FacebookSDK (5.0.0):
-    - FacebookSDK/CoreKit (= 5.0.0)
-    - FacebookSDK/MarketingKit (= 5.0.0)
-  - FacebookSDK/CoreKit (5.0.0):
-    - FBSDKCoreKit (= 5.0.0)
-  - FacebookSDK/MarketingKit (5.0.0):
+  - FacebookSDK (4.44.1):
+    - Bolts (~> 1.9)
+    - FacebookSDK/CoreKit (= 4.44.1)
+    - FacebookSDK/MarketingKit (= 4.44.1)
+  - FacebookSDK/CoreKit (4.44.1):
+    - Bolts (~> 1.9)
+    - FBSDKCoreKit
+  - FacebookSDK/MarketingKit (4.44.1):
+    - Bolts (~> 1.9)
     - FacebookSDK/CoreKit
-    - FBSDKMarketingKit (= 5.0.0)
-  - FBSDKCoreKit (5.0.0):
-    - FBSDKCoreKit/Basics (= 5.0.0)
-    - FBSDKCoreKit/Core (= 5.0.0)
-  - FBSDKCoreKit/Basics (5.0.0)
-  - FBSDKCoreKit/Core (5.0.0):
-    - FBSDKCoreKit/Basics
-  - FBSDKMarketingKit (5.0.0):
-    - FBSDKCoreKit (= 5.0.0)
+    - FBSDKMarketingKit
+  - FBSDKCoreKit (4.39.1):
+    - Bolts (~> 1.9)
+  - FBSDKMarketingKit (4.38.0):
+    - FBSDKCoreKit
   - Flutter (1.0.0)
 
 DEPENDENCIES:
@@ -26,6 +32,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Bolts
     - FacebookSDK
     - FBSDKCoreKit
     - FBSDKMarketingKit
@@ -37,10 +44,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios"
 
 SPEC CHECKSUMS:
-  facebook_sdk: 4e53b65d9f57e2fe96ffdd0ee4bab51f9cf9f15d
-  FacebookSDK: ad10680cfa5a2f02213113f3e2a21bec726fff34
-  FBSDKCoreKit: ba361d4a9d4dc29ff218822b849b22d4f869c7bb
-  FBSDKMarketingKit: 4b8d3c6b53b5397cd0b6ba39b1e7034bc9f3a45e
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  facebook_sdk: 200ec89f6116f9a41d5f25d8ad3505703e696513
+  FacebookSDK: 98dd798abb2fe8148d010d30f5d9b4b47bc30922
+  FBSDKCoreKit: f442aa96179cc9b382bb4abeb7e340a47cca8f91
+  FBSDKMarketingKit: e609f39d74ab273cf52e2f8b7e8829ed412b2827
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
 
 PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497

@@ -14,25 +14,25 @@ public class SwiftFacebookSdkPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "setApplicationId":
         if let args = call.arguments as? [String: Any], let appId = args["appId"] as? String {
-            Settings.appID = appId
+            FBSDKSettings.setAppID(appId)
         }
     case "logEvent":
         if let args = call.arguments as? [String: Any], let eventName = args["eventName"] as? String {
             if let params = args["params"] as? [String: String] {
-                AppEvents.logEvent(AppEvents.Name(rawValue: eventName), parameters: params)
+                FBSDKAppEvents.logEvent(eventName, parameters: params)
             } else {
-                AppEvents.logEvent(AppEvents.Name(rawValue: eventName))
+                FBSDKAppEvents.logEvent(eventName)
             }
         }
     case "setUserID":
         if let args = call.arguments as? [String: Any], let userID = args["userID"] as? String {
-            AppEvents.userID = userID
+            FBSDKAppEvents.setUserID(userID)
         }
     case "clearUserID":
-        AppEvents.clearUserID()
+        FBSDKAppEvents.clearUserID()
     case "updateUserProperties":
         if let args = call.arguments as? [String: Any], let params = args["params"] as? [String: String] {
-            AppEvents.updateUserProperties(params, handler: nil)
+            FBSDKAppEvents.updateUserProperties(params, handler: nil)
         }
     default:
         result(FlutterMethodNotImplemented)
