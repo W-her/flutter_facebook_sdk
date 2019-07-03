@@ -35,7 +35,7 @@ public class SwiftFacebookSdkPlugin: NSObject, FlutterPlugin {
             FBSDKAppEvents.updateUserProperties(params, handler: nil)
         }
     case "standardEventSubscribe":
-        FBSDKAppEvents.logEvent(FBSDKAppEventNameSubscribe)
+        FBSDKAppEvents.logEvent(FBSDKAppEventNameSubmitApplication)
     case "standardEventSearched":
         FBSDKAppEvents.logEvent(FBSDKAppEventNameSearched)
     case "standardEventRated":

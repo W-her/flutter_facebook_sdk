@@ -81,7 +81,7 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 break;
             }
             case "standardEventSubscribe": {
-                logger.logEvent(AppEventsConstants.EVENT_NAME_SUBSCRIBE);
+                logger.logEvent(AppEventsConstants.EVENT_NAME_SUBMIT_APPLICATION);
                 break;
             }
             case "standardEventSearched": {
