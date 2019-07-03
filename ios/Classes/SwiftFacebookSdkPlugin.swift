@@ -34,6 +34,12 @@ public class SwiftFacebookSdkPlugin: NSObject, FlutterPlugin {
         if let args = call.arguments as? [String: Any], let params = args["params"] as? [String: String] {
             FBSDKAppEvents.updateUserProperties(params, handler: nil)
         }
+    case "standardEventSubscribe":
+        FBSDKAppEvents.logEvent(FBSDKAppEventNameSubscribe)
+    case "standardEventSearched":
+        FBSDKAppEvents.logEvent(FBSDKAppEventNameSearched)
+    case "standardEventRated":
+        FBSDKAppEvents.logEvent(FBSDKAppEventNameRated)
     default:
         result(FlutterMethodNotImplemented)
     }
