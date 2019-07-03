@@ -44,4 +44,25 @@ class FacebookSdk {
       "params": params,
     });
   }
+
+  static Future<void> standardEvent(StandardEvent standardEvent) async {
+    switch (standardEvent) {
+      case StandardEvent.EVENT_NAME_SUBSCRIBE:
+        await _channel.invokeMethod('standardEventSubscribe');
+        break;
+      case StandardEvent.EVENT_NAME_SEARCHED:
+        await _channel.invokeMethod('standardEventSearched');
+        break;
+      case StandardEvent.EVENT_NAME_RATED:
+        await _channel.invokeMethod('standardEventRated');
+        break;
+      default:
+    }
+  }
+}
+
+enum StandardEvent {
+  EVENT_NAME_SUBSCRIBE,
+  EVENT_NAME_SEARCHED,
+  EVENT_NAME_RATED
 }

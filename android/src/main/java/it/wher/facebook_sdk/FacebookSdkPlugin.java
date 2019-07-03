@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsConstants;
 import com.facebook.appevents.AppEventsLogger;
 
 import java.util.Map;
@@ -77,6 +78,18 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                     bundle.putString(entry.getKey(), entry.getValue());
                 }
                 logger.updateUserProperties(bundle, null);
+                break;
+            }
+            case "standardEventSubscribe": {
+                logger.logEvent(AppEventsConstants.EVENT_NAME_SUBSCRIBE);
+                break;
+            }
+            case "standardEventSearched": {
+                logger.logEvent(AppEventsConstants.EVENT_NAME_SEARCHED);
+                break;
+            }
+            case "standardEventRated": {
+                logger.logEvent(AppEventsConstants.EVENT_NAME_RATED);
                 break;
             }
             default:

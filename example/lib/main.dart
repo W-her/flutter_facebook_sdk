@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    FacebookSdk.setApplicationId(appId: [FACEBOOKAPPIDHERE]);
+    FacebookSdk.setApplicationId(appId: "207820050055545");
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -59,6 +59,36 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   FacebookSdk.updateUserProperties(
                     params: {"property": "userParam"},
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text("Standard Event Subscribe"),
+                onPressed: () {
+                  FacebookSdk.standardEvent(
+                    StandardEvent.EVENT_NAME_SUBSCRIBE,
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text("Standard Event Searched"),
+                onPressed: () {
+                  FacebookSdk.standardEvent(
+                    StandardEvent.EVENT_NAME_SEARCHED,
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text("Standard Event Rated"),
+                onPressed: () {
+                  FacebookSdk.standardEvent(
+                    StandardEvent.EVENT_NAME_RATED,
                   );
                 },
               ),
