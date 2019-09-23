@@ -1,29 +1,23 @@
 PODS:
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
   - facebook_sdk (0.0.1):
-    - FacebookSDK (= 4.44.1)
-    - FBSDKCoreKit (= 4.39.1)
+    - FacebookSDK (= 5.5.0)
     - Flutter
-  - FacebookSDK (4.44.1):
-    - Bolts (~> 1.9)
-    - FacebookSDK/CoreKit (= 4.44.1)
-    - FacebookSDK/MarketingKit (= 4.44.1)
-  - FacebookSDK/CoreKit (4.44.1):
-    - Bolts (~> 1.9)
-    - FBSDKCoreKit
-  - FacebookSDK/MarketingKit (4.44.1):
-    - Bolts (~> 1.9)
+  - FacebookSDK (5.5.0):
+    - FacebookSDK/CoreKit (= 5.5.0)
+    - FacebookSDK/MarketingKit (= 5.5.0)
+  - FacebookSDK/CoreKit (5.5.0):
+    - FBSDKCoreKit (~> 5.0)
+  - FacebookSDK/MarketingKit (5.5.0):
     - FacebookSDK/CoreKit
-    - FBSDKMarketingKit
-  - FBSDKCoreKit (4.39.1):
-    - Bolts (~> 1.9)
-  - FBSDKMarketingKit (4.38.0):
-    - FBSDKCoreKit
+    - FBSDKMarketingKit (~> 5.0)
+  - FBSDKCoreKit (5.6.0):
+    - FBSDKCoreKit/Basics (= 5.6.0)
+    - FBSDKCoreKit/Core (= 5.6.0)
+  - FBSDKCoreKit/Basics (5.6.0)
+  - FBSDKCoreKit/Core (5.6.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKMarketingKit (5.5.0):
+    - FBSDKCoreKit (~> 5.5)
   - Flutter (1.0.0)
 
 DEPENDENCIES:
@@ -32,7 +26,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Bolts
     - FacebookSDK
     - FBSDKCoreKit
     - FBSDKMarketingKit
@@ -44,13 +37,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios"
 
 SPEC CHECKSUMS:
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  facebook_sdk: 200ec89f6116f9a41d5f25d8ad3505703e696513
-  FacebookSDK: 98dd798abb2fe8148d010d30f5d9b4b47bc30922
-  FBSDKCoreKit: f442aa96179cc9b382bb4abeb7e340a47cca8f91
-  FBSDKMarketingKit: e609f39d74ab273cf52e2f8b7e8829ed412b2827
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  facebook_sdk: e59c0042bac4c5ef27bc62a98398c1ee28e0784b
+  FacebookSDK: dd0cd66e92c0d9275802e75cd3525f835eda074e
+  FBSDKCoreKit: d6655a343868d4bb5c29a60859bab07c3be14a0b
+  FBSDKMarketingKit: 570d0c2778a2166b0cd55b301160d662ccbe8927
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
 
 PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

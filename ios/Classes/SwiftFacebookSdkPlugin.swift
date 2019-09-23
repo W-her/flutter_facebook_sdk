@@ -14,32 +14,32 @@ public class SwiftFacebookSdkPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "setApplicationId":
         if let args = call.arguments as? [String: Any], let appId = args["appId"] as? String {
-            FBSDKSettings.setAppID(appId)
+            Settings.appID = appId
         }
     case "logEvent":
         if let args = call.arguments as? [String: Any], let eventName = args["eventName"] as? String {
             if let params = args["params"] as? [String: String] {
-                FBSDKAppEvents.logEvent(eventName, parameters: params)
+                AppEvents.logEvent(AppEvents.Name(rawValue: eventName), parameters: params)
             } else {
-                FBSDKAppEvents.logEvent(eventName)
+                AppEvents.logEvent(AppEvents.Name(rawValue: eventName))
             }
         }
     case "setUserID":
         if let args = call.arguments as? [String: Any], let userID = args["userID"] as? String {
-            FBSDKAppEvents.setUserID(userID)
+            AppEvents.userID = userID
         }
     case "clearUserID":
-        FBSDKAppEvents.clearUserID()
+        AppEvents.clearUserID()
     case "updateUserProperties":
         if let args = call.arguments as? [String: Any], let params = args["params"] as? [String: String] {
-            FBSDKAppEvents.updateUserProperties(params, handler: nil)
+            AppEvents.updateUserProperties(params, handler: nil)
         }
     case "standardEventSubscribe":
-        FBSDKAppEvents.logEvent(FBSDKAppEventNameSubmitApplication)
+        AppEvents.logEvent(AppEvents.Name.submitApplication)
     case "standardEventSearched":
-        FBSDKAppEvents.logEvent(FBSDKAppEventNameSearched)
+        AppEvents.logEvent(AppEvents.Name.searched)
     case "standardEventRated":
-        FBSDKAppEvents.logEvent(FBSDKAppEventNameRated)
+        AppEvents.logEvent(AppEvents.Name.rated)
     default:
         result(FlutterMethodNotImplemented)
     }
