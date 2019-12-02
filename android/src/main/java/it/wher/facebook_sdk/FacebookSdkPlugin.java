@@ -44,6 +44,7 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 FacebookSdk.setApplicationId(appId);
                 FacebookSdk.sdkInitialize(context);
                 logger = AppEventsLogger.newLogger(context);
+                result.success(null);
                 break;
             }
             case "logEvent": {
@@ -59,15 +60,18 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                 } else {
                     logger.logEvent(eventName);
                 }
+                result.success(null);
                 break;
             }
             case "setUserID": {
                 String userID = call.argument("userID");
                 logger.setUserID(userID);
+                result.success(null);
                 break;
             }
             case "clearUserID": {
                 logger.clearUserID();
+                result.success(null);
                 break;
             }
             case "updateUserProperties": {
@@ -78,18 +82,22 @@ public class FacebookSdkPlugin implements MethodCallHandler {
                     bundle.putString(entry.getKey(), entry.getValue());
                 }
                 logger.updateUserProperties(bundle, null);
+                result.success(null);
                 break;
             }
             case "standardEventSubscribe": {
                 logger.logEvent(AppEventsConstants.EVENT_NAME_SUBMIT_APPLICATION);
+                result.success(null);
                 break;
             }
             case "standardEventSearched": {
                 logger.logEvent(AppEventsConstants.EVENT_NAME_SEARCHED);
+                result.success(null);
                 break;
             }
             case "standardEventRated": {
                 logger.logEvent(AppEventsConstants.EVENT_NAME_RATED);
+                result.success(null);
                 break;
             }
             default:
